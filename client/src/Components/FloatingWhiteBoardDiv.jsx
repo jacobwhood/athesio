@@ -46,15 +46,15 @@ class FloatingWhiteBoardDiv extends React.Component {
             :
             (
               <div className="floating-div-container">
-                 <div id="fdh" >
+                <div id="fdh" >
                     <div id="floatingDivHeader" className="handle" >
                       WhiteBoard
                     </div>
                     <div className="exitChat" onClick={this.props.minimize}>
                       X
                     </div>
-                  </div>
-                  < WhiteBoard socket={this.props.socket} sendNewImage={this.props.sendNewImage}/>
+                </div>
+                < WhiteBoard socket={this.props.socket} sendNewImage={this.props.sendNewImage}/>
               </div>
             )
           }
