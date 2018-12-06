@@ -77,10 +77,6 @@ class FloatingChatDiv extends React.Component {
                         onClick={() => this.props.sendNewMessage(this.state.currentMessage, this.clearInputBox)}
                       > Send </Button>
                     </div>
-                      
-                      {/* <button 
-                        onClick={() => this.props.sendNewMessage(this.state.currentMessage, this.clearInputBox)}
-                      > Send </button> */}
                   </div>
                 </div>
               </div>
