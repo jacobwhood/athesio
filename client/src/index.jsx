@@ -7,19 +7,6 @@ import Login from './Components/Login.jsx';
 import Logout from './Components/Logout.jsx';
 import LandingPage from './Components/LandingPage.jsx';
 import ProtectedRoute from './Components/ProtectedRoute.jsx';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-
-const initState = {
-  code: [{refId: 'abc123', code:'console.log(`hello world`)'}]
-}
-
-const rootReducer = (state =initState, action)=>{
-return state;   
-}
-
-
-const store = createStore(rootReducer);
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +21,6 @@ class App extends Component {
   }
 
   onCodeUpdate(newCode, e) {
-    console.log('newCode: ', newCode);
     this.setState({ code: newCode }, () => {
       this.socket.emit('clientUpdateCode', newCode);
     });
@@ -49,8 +35,6 @@ class App extends Component {
         <Switch>
           <Route exact path='/logout' component={Logout} />
           <Route exact path='/login' component={Login} />
-          {/* <Route exact path='/selectroom' component={SelectRoom} />
-          <Route path='/room/:id' component={Room} /> */}
           <ProtectedRoute path='/room/:id' component={Room} />
           <ProtectedRoute path='/room/*' component={Room} />
           <ProtectedRoute path='/selectroom' component={SelectRoom} />
@@ -64,5 +48,5 @@ class App extends Component {
 
 ReactDOM.render((
 <BrowserRouter> 
-  <Provider store={store}><App /></Provider>
+    <App />
 </BrowserRouter>), document.getElementById('app'));
