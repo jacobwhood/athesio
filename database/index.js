@@ -32,7 +32,6 @@ module.exports.saveUser = (user, cb) => {
 };
 
 module.exports.saveRoomInfoForUser = (roomInfo, cb) => {
-  // console.log('in saveRoomInfoForUser roomInfo: ', roomInfo);
   this.saveUser(roomInfo.user, (err, _) => {
     if (err) {
       console.log('error saving user to DB: ', err);
@@ -107,8 +106,10 @@ module.exports.getPreviousRoomsForUser = (userGithubId, cb) => {
           createDate: record.create_date,
           lastModifiedDate: record.last_modified_date
         };
+
         return currRecordObj;
       });
+
       cb(null, resultArr);
     }
   });

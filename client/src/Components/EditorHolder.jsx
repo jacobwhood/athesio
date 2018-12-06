@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Firepad from './Firepad.jsx';
-import otherUsers from '../../fakeOtherUsers.js';
-import { Button } from 'reactstrap';
-
-
 
 const EditorHolder = (props) => {
   return (
